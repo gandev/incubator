@@ -1,0 +1,20 @@
+# Meteor packages used by this project, one per line.
+#
+# 'meteor add' and 'meteor remove' will edit this file for you,
+# but you can also edit it by hand.
+
+meteor-platform
+# autopublish
+insecure
+reactive-var
+
+gandev:server-eval
+html5-forms
+aldeed:simple-schema
+iron:router
+tap:i18n
+aldeed:autoform
+twbs:bootstrap
+momentjs:moment
+xolvio:cucumber@0.6.0-rc.7
+gandev:gherkin

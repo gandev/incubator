@@ -1,0 +1,32 @@
+{
+  "dependencies": {
+    "estraverse": {
+      "version": "3.1.0"
+    },
+    "gherkin": {
+      "version": "2.12.2"
+    },
+    "recast": {
+      "version": "0.10.11",
+      "dependencies": {
+        "esprima-fb": {
+          "version": "13001.1001.0-dev-harmony-fb"
+        },
+        "source-map": {
+          "version": "0.4.2",
+          "dependencies": {
+            "amdefine": {
+              "version": "0.1.0"
+            }
+          }
+        },
+        "private": {
+          "version": "0.1.6"
+        },
+        "ast-types": {
+          "version": "0.7.6"
+        }
+      }
+    }
+  }
+}

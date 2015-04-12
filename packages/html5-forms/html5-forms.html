@@ -1,0 +1,25 @@
+<template name="hForm">
+  <form id="{{this.id}}">
+    {{> Template.contentBlock}}
+  </form>
+</template>
+
+<template name="hInput">
+  {{#if this.label}}
+    <label>{{this.label}}</label>
+  {{/if}}
+
+  {{#if isType "select"}}
+    <select name="{{this.name}}">
+      {{#each this.options}}
+        <option {{isSelected ../value}}>{{this}}</option>
+      {{/each}}
+    </select>
+  {{else}}
+    {{#if isType "textarea"}}
+      <textarea name="{{this.name}}" rows="{{this.rows}}">{{this.value}}</textarea>
+    {{else}}
+      <input type="{{this.type}}" name="{{this.name}}" value="{{this.value}}">
+    {{/if}}
+  {{/if}}
+</template>

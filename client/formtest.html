@@ -1,0 +1,17 @@
+<template name="h5form">
+  {{#unless isValid "myForm"}}
+    <div class="alert alert-danger" role="alert">
+      something went terribly wrong
+    </div>
+  {{/unless}}
+
+  {{#hForm id="myForm" schema="MySchema"}}
+    {{> hInput name="test1" type="text" value="default" label="something"}}
+
+    {{> hInput name="test2" type="select" value="default" label="something" options=testOptions}}
+
+    {{> hInput name="test3" type="checkbox"}}
+
+    <button type="submit">submit</button>
+  {{/hForm}}
+</template>
