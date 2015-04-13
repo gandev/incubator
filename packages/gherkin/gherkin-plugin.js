@@ -164,7 +164,7 @@ Plugin.registerSourceHandler('gherkin', function (compileStep) {
       if(node.type === 'CallExpression' && node.callee.type === 'MemberExpression' &&
         node.callee.object.type === 'ThisExpression') {
 
-        var isGherkin = _.contains(['Given', 'When', 'Then', 'And', 'But'], node.callee.property.name);
+        var isGherkin = _.contains(['Given', 'When', 'Then'], node.callee.property.name);
         if(isGherkin) {
           alreadyDefinedSteps.push(node.arguments[0].value);
         }
@@ -203,7 +203,10 @@ Plugin.registerSourceHandler('gherkin', function (compileStep) {
                 astBuilder.expressionStatement(
                   astBuilder.literal('generated')),
                 astBuilder.expressionStatement(
-                  astBuilder.callExpression(astBuilder.identifier('callback'), []))
+                  astBuilder.callExpression(
+                    astBuilder.memberExpression(
+                      astBuilder.identifier('callback'),
+                      astBuilder.identifier('fail')), []))
               ]))
           ])
       );
@@ -221,7 +224,7 @@ Plugin.registerSourceHandler('gherkin', function (compileStep) {
 
       //console.log(recast.print(stepAst));
 
-      var newStepsDefinition = recast.print(ast);
+      var newStepsDefinition = recast.print(ast).code;
       fs.writeFileSync(path.join(stepDefinitionsFolder, featureIdentifier + '_steps.js'), newStepsDefinition);
     });
   });

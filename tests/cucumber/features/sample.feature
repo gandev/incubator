@@ -10,4 +10,4 @@ Feature: Submit form, convert and validate
     Then I should see the title of "sample-app"
     When I submit the empty form
     Then I should get validation errors
-    Then I "should" get validation errors
+    Then Stay where we are

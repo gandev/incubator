@@ -42,7 +42,7 @@ if(Meteor.isServer) {
           if(node.type === 'CallExpression' && node.callee.type === 'MemberExpression' &&
             node.callee.object.type === 'ThisExpression') {
 
-            var isGherkin = _.contains(['Given', 'When', 'Then', 'And', 'But'], node.callee.property.name);
+            var isGherkin = _.contains(['Given', 'When', 'Then'], node.callee.property.name);
             if(isGherkin && node.arguments[1].body.body[0].expression.value === 'generated') {
               GeneratedCucumberTestSteps.insert({
                 file: absoluteFilePath,

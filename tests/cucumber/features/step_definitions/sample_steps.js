@@ -27,9 +27,6 @@
       this.browser.submitForm('#myForm').call(callback);
     });
 
-    // this.Then (/^I should get no "([^"]*)" validation errors "([^"]*)"$/, function (arg1, arg2, callback) {
-    //   callback();
-    // });
     this.Then(/^I should get validation errors$/, function (callback) {
       "generated";
       this.browser.isExisting('.alert').should.become(true).and.notify(callback);
@@ -37,9 +34,9 @@
       //this.browser.getText('.alert').should.become('something went terribly wrong').and.notify(callback);
     });
 
-    this.Then (/^I "([^"]*)" get validation errors$/, function(arg1, callback) {
-      //"generated";
-      callback();
+    this.Then (/^Stay where we are$/, function(callback) {
+      "generated";
+      callback.fail();
     });
   };
 
