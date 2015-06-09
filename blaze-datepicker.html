@@ -1,0 +1,53 @@
+<body>
+  {{> blazeDatepicker}}
+</body>
+
+<template name="blazeDatepicker">
+  <div class="picker-overlay">
+    <div class="picker-container">
+      <div class="picker-months">
+        <button type="button" class="btn btn-default pull-left months-back">
+          <span class="fa fa-chevron-left fa-lg"></span>
+        </button>
+        
+        <button type="button" class="btn btn-default pull-right months-forward">
+          <span class="fa fa-chevron-right fa-lg"></span>
+        </button>
+        
+        <div class="current-month">{{currentMonth}} {{currentYear}}</div>
+      </div>
+      
+      <div class="picker-days">
+        <div class="container-fluid">
+          <div class="row">
+            {{#each daysShort}}
+              <div class="day-column">
+                {{this}}
+              </div>
+            {{/each}}
+          </div>
+          
+          {{#each daysInRows}}
+            <div class="row">
+              {{#each this}}
+                <div class="day-column">
+                  <button class="btn {{#if isCurrentDate}}btn-primary{{else}}btn-default{{/if}} {{#if this.isCurrentMonth}}day-in-month{{/if}} day-select">{{this.date}}</button>
+                </div>
+              {{/each}}
+            </div>
+          {{/each}}
+        </div>
+      </div>
+      
+      <div class="picker-controls">
+        <button type="button" class="btn btn-default">
+          <span class="fa fa-close fa-lg text-danger"></span>
+        </button>
+        
+        <button type="button" class="btn btn-default select-today">
+          <span class="fa fa-clock-o fa-lg text-success"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</template>
